@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jason Penuliar | Lead System Administrator & Infrastructure Specialist</title>
+    <style>
+        :root {
+            --primary: #1e293b;
+            --secondary: #0f172a;
+            --accent: #2563eb;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom: 5px solid var(--accent);
+        }
+
+        .header-container h1 {
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-container .subtitle {
+            font-size: 1.2rem;
+            color: #93c5fd;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-info a:hover {
+            color: #93c5fd;
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            background: var(--bg-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--secondary);
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .summary-text {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        /* Table Styling */
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .skills-table th, .skills-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .skills-table th {
+            background-color: var(--bg-light);
+            color: var(--secondary);
+            font-weight: 600;
+            width: 30%;
+        }
+
+        /* Experience Timeline */
+        .job {
+            margin-bottom: 2rem;
+        }
+
+        .job:last-child {
+            margin-bottom: 0;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .job-title span {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .job-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 600;
+            background: var(--bg-light);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        .job-details {
+            list-style-type: none;
+            padding-left: 0.5rem;
+        }
+
+        .job-details li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.4rem;
+            color: var(--text-main);
+        }
+
+        .job-details li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Projects */
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 0 6px 6px 0;
+            background-color: var(--bg-light);
+        }
+
+        .project-card h3 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-meta {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .project-meta strong {
+            color: var(--text-main);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container h1 { font-size: 2rem; }
+            .job-header { flex-direction: column; gap: 0.3rem; }
+            .skills-table th, .skills-table td { display: block; width: 100%; }
+            .skills-table th { border-bottom: none; padding-bottom: 0.2rem; }
+            .skills-table td { padding-top: 0.2rem; margin-bottom: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <h1>JASON PENULIAR</h1>
+            <div class="subtitle">System Administrator & Infrastructure Specialist</div>
+            <div class="contact-info">
+                <span>📍 Taguig City, Philippines</span>
+                <a href="mailto:Jason.penuliar08@gmail.com">✉️ Jason.penuliar08@gmail.com</a>
+                <span>📞 0992-616-6004</span>
+                <a href="https://www.linkedin.com/in/jason-" target="_blank">🔗 LinkedIn Portfolio</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="summary">
+            <h2>Executive Summary</h2>
+            <p class="summary-text">
+                Highly analytical and detail-oriented <strong>System Administrator</strong> with nearly a decade of experience across global IT enterprises, managed service providers (MSPs), and financial institutions. Focused professional with verified experience in multi-site call center management, process simplifications, and establishing critical service benchmarks. Specialized in <strong>Microsoft 365 Enterprise Administration</strong>, <strong>Identity & Access Management (IAM)</strong>, <strong>Endpoint Management (Intune)</strong>, and <strong>Enterprise Cyber Security</strong>. Expert at translating complex technical incidents into optimized, automated workflows that minimize downtime and maximize corporate compliance.
+            </p>
+        </section>
+
+        <section id="skills">
+            <h2>Core Technical Expertise</h2>
+            <table class="skills-table">
+                <tr>
+                    <th>Cloud & Identity</th>
+                    <td>Microsoft 365 (Exchange, Teams, SharePoint, OneDrive), Entra ID, Active Directory (AD), Hybrid Identity Management, MFA, Conditional Access Policies.</td>
+                </tr>
+                <tr>
+                    <th>Endpoint & Server Admin</th>
+                    <td>Microsoft Intune / MDM, Windows Server Environments, Group Policy (GPO), Patch Management, System Configuration.</td>
+                </tr>
+                <tr>
+                    <th>Automation & Scripting</th>
+                    <td>PowerShell Automation, Operational Task Scripting, Workflow Simplification.</td>
+                </tr>
+                <tr>
+                    <th>Security & Compliance</th>
+                    <td>Cybersecurity Tool Management, Threat Response, Security Policy Enforcement, Incident Response, Access Controls.</td>
+                </tr>
+                <tr>
+                    <th>ITIL & Service Delivery</th>
+                    <td>Tier 2/3 Escalation Engineering, Critical Incident Response, Subject Matter Expert (SME) Coaching, Vendor Management, Root Cause Analysis (RCA).</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="experience">
+            <h2>Professional Experience</h2>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">System Administrator | <span>ConnectOS</span></div>
+                    <div class="job-date">June 2025 – Present</div>
+                </div>
+                <ul class="job-details">
+                    <li>Provided Tier 2/3 support and administered Microsoft 365 services, including Exchange, Teams, SharePoint, and OneDrive.</li>
+                    <li>Managed user lifecycle, identity and access (Active Directory, Entra ID), and security controls such as MFA and Conditional Access.</li>
+                    <li>Handled Intune endpoint management, automated tasks using PowerShell, maintained Windows Server environments, and resolved network/security issues while ensuring accurate documentation.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Service Desk Analyst | <span>Eastvantage Business Solution INC</span></div>
+                    <div class="job-date">August 2024 - April 2025</div>
+                </div>
+                <ul class="job-details">
+                    <li>Led and contributed to critical incident response and post-incident review processes.</li>
+                    <li>Developed and maintained scripts and tools to automate recurring support tasks while maintaining technical documentation, procedures, and user guides.</li>
+                    <li>Provided mentoring and guidance to Level 1 and Level 2 Analysts, ensuring strict compliance with company IT policies and procedures.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Cyber Security Administrator | <span>JPMorgan Chase & CO</span></div>
+                    <div class="job-date">Feb 2024 – Aug 2024</div>
+                </div>
+                <ul class="job-details">
+                    <li>Monitored and secured IT systems by managing security tools, responding to threats, and enforcing policies to protect organizational data and infrastructure.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Sr. Technical Process Executive | <span>ATOS-Syntel</span></div>
+                    <div class="job-date">January 2022 - Nov 2023</div>
+                </div>
+                <ul class="job-details">
+                    <li>Resolved complex escalated Tier 2/3 issues across software, hardware, network, and server environments.</li>
+                    <li>Served as a Subject Matter Expert (SME) and actively contributed to system design, infrastructure improvements, and technical configurations.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Technical Support & System Engineering Roles | <span>Infosys / Sutherland / Tech Firms</span></div>
+                    <div class="job-date">August 2016 - February 2021</div>
+                </div>
+                <ul class="job-details">
+                    <li><strong>Infosys BPM Ltd (Sr. Technical Support Engineer):</strong> Handled escalated Level 1 tickets by providing second-line support, troubleshooting complex endpoint/application issues, and managing enterprise services, user accounts, and permissions.</li>
+                    <li><strong>Sutherland (Associate-CS Phone):</strong> Handled escalated Level 1 tickets, provided second-line technical support, coordinated with vendors/internal teams, and performed root cause analysis for recurring incidents.</li>
+                    <li><strong>Lazada, E-konflux, & IOPEX Technologies:</strong> Served as the primary point of contact for enterprise IT infrastructures, performing user account password resets, hardware, software, network, and printer troubleshooting while logging and managing system tickets.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Key Infrastructure Projects Showcase</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>1. Enterprise Identity Hardening & Modern Endpoint Deployment</h3>
+                    <div class="project-meta"><strong>Focus:</strong> Access Governance, Cloud Migration, Zero-Trust Architecture</div>
+                    <p>Orchestrated hybrid infrastructure identity migrations utilizing Microsoft Entra ID and Active Directory. Successfully deployed corporate endpoint tracking and governance profiles via Microsoft Intune while securing parameters with rigid Conditional Access Policies and Multi-Factor Authentication (MFA) parameters.</p>
+                </div>
+                <div class="project-card">
+                    <h3>2. PowerShell Automation Suite for Operations Optimization</h3>
+                    <div class="project-meta"><strong>Focus:</strong> DevOps, Operational Overhead Reduction, Shell Scripting</div>
+                    <p>Designed and deployed custom automated infrastructure scripts using PowerShell to handle recurring provisioning tasks, system permission compliance tracking, and cleanups.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Jason Penuliar. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
